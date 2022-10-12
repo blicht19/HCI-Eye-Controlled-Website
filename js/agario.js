@@ -2,15 +2,22 @@
 // TODO: Add Borders
 // TODO: Add Variable Speed
 
-let button, mainCell, enemyCells;
+let button, mainCell;
+let enemyCells = [];
 
 function setup() {
-    noLoop();
-
     let gameCanvas = createCanvas(window.innerWidth * 0.8, window.innerHeight * 0.8);
     gameCanvas.parent("game-box");
+
+    gameSetup();
+}
+
+function gameSetup() {
+    noLoop();
+    clearInterval();
     background("#BCBBBA");
 
+    //TODO: Add class to make button look nicer
     button = createButton('Start');
     button.size(100, 50);
     button.position((width - 50) / 2, (height - 100) / 2);
@@ -18,7 +25,7 @@ function setup() {
     button.mousePressed(startGame);
 
     mainCell = new Cell(width / 2, height / 2, height / 5, 'red');
-
+    enemyCells = [];
     //TODO: Block out range of starting cell for enemies to spawn
     enemyCells = Array.from({ length: 20 }, () => new Cell(
         random(-width, 2 * width),
@@ -61,5 +68,5 @@ function draw() {
 
 function endGame() {
     window.alert("Game Over. Play Again?");
-    setup();
+    gameSetup();
 }
