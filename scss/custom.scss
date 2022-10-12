@@ -25,7 +25,6 @@ header {
     font-family: $font-secondary;
     font-weight: $bold;
     font-size: 6rem;
-
 }
 
 .hover-focus:hover {
@@ -35,4 +34,9 @@ header {
 #agario-card {
     background-image: url("/images/agario.png");
     background-position: center;
+}
+
+#game-box {
+    margin: 0 0 3rem auto;
+    position: relative;
 }

@@ -10518,4 +10518,9 @@ header {
   background-position: center;
 }
 
+#game-box {
+  margin: 0 0 3rem auto;
+  position: relative;
+}
+
 /*# sourceMappingURL=compiled_styles.css.map */
