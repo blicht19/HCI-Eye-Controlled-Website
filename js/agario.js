@@ -2,6 +2,7 @@
 // TODO: Add Borders
 // TODO: Add Variable Speed
 // TODO: Spawn many small, few big cells
+// TODO: Make other cells move
 
 let button, mainCell, gameOver;
 let enemyCells = [];
@@ -14,7 +15,8 @@ function setup() {
 }
 
 function gameSetup() {
-    noLoop();
+    
+    background('#BCBBBA');
     gameOver = false;
     //TODO: Add class to make button look nicer
     button = createButton('Start');
@@ -34,8 +36,9 @@ function gameSetup() {
 
     background('#BCBBBA');
     enemyCells.forEach(cell => cell.show());
+    resetMatrix();
     mainCell.show();
-
+    noLoop();
 }
 
 function startGame() {
@@ -45,14 +48,15 @@ function startGame() {
 
 function draw() {
     background('#BCBBBA');
+    
+    let v = createVector(mouseX, mouseY);
+    v.sub(createVector(width/2, height/2));
+    mainCell.move(v.heading() - PI);
+
+    translate(width/2-mainCell.pos.x, height/2-mainCell.pos.y);
+
     mainCell.show();
-
     enemyCells.forEach((cell, i, arr) => {
-        // mainCell stays in the middle while enemies all move at the same heading
-        let v = createVector(mouseX, mouseY);
-        v.sub(mainCell.pos);
-        cell.move(v.heading());
-
         cell.show();
 
         // Checks if mainCell consumes any smaller cell
