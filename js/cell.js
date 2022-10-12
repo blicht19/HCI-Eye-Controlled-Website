@@ -10,4 +10,10 @@ class Cell {
         circle(this.pos.x, this.pos.y, this.d);
     };
 
+    move = (heading) => {
+        var moveTo = createVector(this.pos.x, this.pos.y);
+        moveTo.setHeading(heading);
+        moveTo.setMag(3);
+        this.pos.sub(moveTo);
+      }
 }
