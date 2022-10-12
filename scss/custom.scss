@@ -1,0 +1,38 @@
+$theme-colors: (
+    "primary": #0A0A0A,
+    "secondary": #D71920,
+    "light": #BCBBBA,
+    "dark": #474648,
+    "white": #FFF
+);
+
+$font-primary: 'Roboto', sans-serif;
+$font-secondary: 'Roboto Mono', monospace;
+
+$thin: 100;
+$regular: 400;
+$bold: 700;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+header {
+    font-family: $font-primary;
+
+}
+
+.game-card {
+    min-height: 30vh;
+    font-family: $font-secondary;
+    font-weight: $bold;
+    font-size: 6rem;
+
+}
+
+.hover-focus:hover {
+    transform: scale(1.05);
+}
+
+#agario-card {
+    background-image: url("/images/agario.png");
+    background-position: center;
+}
