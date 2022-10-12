@@ -19,10 +19,6 @@ function startGame() {
     loop();
 }
 
-function preload() {
-    bgImage = loadImage('images/agario-bg.png');
-}
-
 function draw() {
     background("#BCBBBA");
 
