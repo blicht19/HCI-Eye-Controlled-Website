@@ -1,8 +1,9 @@
 // TODO: Add Background Image
 // TODO: Add Borders
 // TODO: Add Variable Speed
+// TODO: Spawn many small, few big cells
 
-let button, mainCell;
+let button, mainCell, gameOver;
 let enemyCells = [];
 
 function setup() {
@@ -14,9 +15,7 @@ function setup() {
 
 function gameSetup() {
     noLoop();
-    clearInterval();
-    background("#BCBBBA");
-
+    gameOver = false;
     //TODO: Add class to make button look nicer
     button = createButton('Start');
     button.size(100, 50);
@@ -32,9 +31,11 @@ function gameSetup() {
         random(-height, 2 * height),
         random(height / 4)
     ));
-    
+
+    background('#BCBBBA');
+    enemyCells.forEach(cell => cell.show());
     mainCell.show();
-    enemyCells.forEach(cell => cell.show())
+
 }
 
 function startGame() {
@@ -43,7 +44,7 @@ function startGame() {
 }
 
 function draw() {
-    background("#BCBBBA");
+    background('#BCBBBA');
     mainCell.show();
 
     enemyCells.forEach((cell, i, arr) => {
@@ -60,13 +61,13 @@ function draw() {
                 mainCell.d += cell.d * 0.1;
                 arr.splice(i, 1);
             } else {
-                endGame();
+                gameOver = true;
             }
         }
     })
-}
 
-function endGame() {
-    window.alert("Game Over. Play Again?");
-    gameSetup();
+    if (gameOver) {
+        window.alert("Game Over. Play Again?");
+        gameSetup();
+    } 
 }
