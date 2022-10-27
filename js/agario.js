@@ -6,8 +6,14 @@
 
 let button, mainCell, gameOver;
 let enemyCells = [];
+let eyeX, eyeY;
 
 function setup() {
+    window.saveDataAcrossSessions = true
+    webgazer.setGazeListener((data, timestamp) => {
+        eyeX = data.x;
+        eyeY = data.y;
+    }).begin()
     let gameCanvas = createCanvas(window.innerWidth * 0.8, window.innerHeight * 0.8);
     gameCanvas.parent("game-box");
 
@@ -49,7 +55,7 @@ function startGame() {
 function draw() {
     background('#BCBBBA');
     
-    let v = createVector(mouseX, mouseY);
+    let v = createVector(eyeX, eyeY);
     v.sub(createVector(width/2, height/2));
     mainCell.move(v.heading() - PI);
 
@@ -73,5 +79,5 @@ function draw() {
     if (gameOver) {
         window.alert("Game Over. Play Again?");
         gameSetup();
-    } 
+    }
 }
