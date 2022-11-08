@@ -10518,9 +10518,14 @@ header {
   background-position: center;
 }
 
+#calibration-card {
+  background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url("/images/calibration.jpg");
+  background-position: center;
+}
+
 #game-box {
   margin: 0 0 3rem auto;
   position: relative;
 }
 
-/*# sourceMappingURL=compiled_styles.css.map */
+/*# sourceMappingURL=custom.css.map */

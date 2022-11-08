@@ -8,34 +8,43 @@
     <title>Eye-Controlled Games</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/compiled_styles.css">
+    <link rel="stylesheet" href="css/custom.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono:wght@100;700&display=swap"
         rel="stylesheet">
-    
+
 </head>
 
 <body class="bg-white text-center">
     <header class="container-fluid d-flex justify-content-center align-items-center gap-5 py-3 bg-dark">
-        <img src="images/uno-icon.png" style="width:3rem" />
+        <a href="index.html"><img src="images/uno-icon.png" style="width:3rem" /></a>
         <h1 class="text-white my-0">Eye-Controlled Games</h1>
     </header>
     <div class="container">
         <div class="my-5">
             <h2 class="text-primary">HCI Project</h2>
             <p class="w-50 mx-auto">For our project, we are implementing games that can be played with only the use of
-                your eyes as input. We are starting by implementing a single-player version of Agar.io that can be
-                played by downloading the eye
-                tracking software <a href="http://www.cameramouse.org/index.html" target="_blank">here</a>. Our plan is
-                to use this to test out the game using eye-tracking as input, but switch to an eye-tracking software
-                that we can integrate into the browser. </p>
-                <a href="calibration.html" class="text-decoration-none">
-                    <p class="text-primary">Calibration Page</p>
-                </a>
+                your eyes as input. We are using a package called
+                <a href="https://webgazer.cs.brown.edu/" target="_blank">WebGazer.js</a>.
+                We are starting with implementing a version of Agar.io, and if time permits, we plan on possibly
+                implementing
+                another game as well.
+                <br>
+                <br>
+                For the best gameplay experience, start with the calibration so the eye tracking software can
+                optimize to your eye movement.
+            </p>
         </div>
+        <a href="calibration.html" class="text-decoration-none">
+            <div class="container game-card d-flex w-100 my-5 justify-content-center align-items-center hover-focus"
+                id="calibration-card">
+                <p class="text-primary">Calibration</p>
+            </div>
+        </a>
         <a href="agario.html" class="text-decoration-none">
-            <div class="container game-card d-flex w-100 justify-content-center align-items-center hover-focus" id="agario-card">
+            <div class="container game-card d-flex w-100 justify-content-center align-items-center hover-focus"
+                id="agario-card">
                 <p class="text-primary">Agar.io</p>
             </div>
         </a>
