@@ -13,7 +13,8 @@ for(let i = 0; i < btns.length; i++)
         btns[i].style.color = 'white';
 
         if (values.every(value => value == colors.length - 1)) {
-          window.location.href = "index.html";
+          alert("You have completed calibration. Redirecting to home page.");
+          window.location = "index.html";
         }
       });
 }
