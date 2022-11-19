@@ -10523,6 +10523,11 @@ header {
   background-position: center;
 }
 
+#video-card {
+  background-image: url("/images/film-stocks.jpeg");
+  background-position: center;
+}
+
 #game-box {
   margin: 0 0 3rem auto;
   position: relative;
