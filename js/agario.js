@@ -33,12 +33,24 @@ function gameSetup() {
 
     mainCell = new Cell(width / 2, height / 2, height / 5, 'red');
     enemyCells = [];
-    //TODO: Block out range of starting cell for enemies to spawn
-    enemyCells = Array.from({ length: 20 }, () => new Cell(
-        random(-width, 2 * width),
-        random(-height, 2 * height),
-        random(height / 4)
-    ));
+    enemyCells.length = 20;
+    for(let i = 0; i < 20; i++)
+    {
+        while(true) {
+            let cell = new Cell(
+                random(-width, 2 * width),
+                random(-height, 2 * height),
+                random(height / 4)
+            );
+            if(cell.pos.dist(mainCell.pos) < (0.5 * (cell.d + mainCell.d))) {
+                continue;
+            }
+            else {
+                enemyCells[i] = cell;
+                break;
+            }
+        }
+    }
 
     background('#BCBBBA');
     enemyCells.forEach(cell => cell.show());
