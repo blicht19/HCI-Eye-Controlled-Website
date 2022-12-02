@@ -1,13 +1,13 @@
-// TODO: Add Background Image
 // TODO: Add Borders
 // TODO: Add Variable Speed
 // TODO: Spawn many small, few big cells
-// TODO: Make other cells move
 
 let button, mainCell, gameOver;
 let enemyCells = [];
 let eyeX, eyeY;
 let enemyVectors = [];
+const gridLineNum = 50;
+const backgroundColor = '#D3D3D3';
 
 function setup() {
     window.saveDataAcrossSessions = true
@@ -23,7 +23,7 @@ function setup() {
 
 function gameSetup() {
     
-    background('#BCBBBA');
+    background(backgroundColor);
     gameOver = false;
     //TODO: Add class to make button look nicer
     button = createButton('Start');
@@ -55,7 +55,7 @@ function gameSetup() {
 
     enemyVectors = Array.from({length: 20}, () => p5.Vector.random2D());
 
-    background('#BCBBBA');
+    background(backgroundColor);
     enemyCells.forEach(cell => cell.show());
     resetMatrix();
     mainCell.show();
@@ -68,7 +68,13 @@ function startGame() {
 }
 
 function draw() {
-    background('#BCBBBA');
+    background(backgroundColor);
+    for (let i = 0; i < width; i += gridLineNum) {
+    
+        line(i - mainCell.pos.x % gridLineNum, 0, i - mainCell.pos.x % gridLineNum, height);
+        line(width, i - mainCell.pos.y % gridLineNum, 0, i - mainCell.pos.y % gridLineNum);
+    
+    }
     
     let v = createVector(eyeX, eyeY);
     v.sub(createVector(width/2, height/2));
