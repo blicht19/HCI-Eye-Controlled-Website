@@ -7,6 +7,7 @@
 let button, mainCell, gameOver;
 let enemyCells = [];
 let eyeX, eyeY;
+let enemyVectors = [];
 
 function setup() {
     window.saveDataAcrossSessions = true
@@ -52,6 +53,8 @@ function gameSetup() {
         }
     }
 
+    enemyVectors = Array.from({length: 20}, () => p5.Vector.random2D());
+
     background('#BCBBBA');
     enemyCells.forEach(cell => cell.show());
     resetMatrix();
@@ -74,7 +77,13 @@ function draw() {
     translate(width/2-mainCell.pos.x, height/2-mainCell.pos.y);
 
     mainCell.show();
+    let frame = frameCount % 60;
+    if(frame < 20)
+    {
+        enemyVectors[frame] = p5.Vector.random2D();
+    }
     enemyCells.forEach((cell, i, arr) => {
+        cell.move(enemyVectors[i].heading() - PI);
         cell.show();
 
         // Checks if mainCell consumes any smaller cell
